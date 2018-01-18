@@ -169,7 +169,7 @@ class AmericanApprovalCharts extends React.Component {
             {
               x: 180,
               y: 41,
-              textLines: ['Gay soldiers allowed', 'to join US military']
+              textLines: ['‘Donʼt ask, donʼt tellʼ policy']
             }
           ]
         }
