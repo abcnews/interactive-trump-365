@@ -1,10 +1,12 @@
 {
   "name": "interactive-trump-365",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A project generated from aunty's react-app template.",
   "license": "MIT",
   "private": true,
-  "contributors": ["Colin Gourlay <Gourlay.Colin@abc.net.au>"],
+  "contributors": [
+    "Colin Gourlay <Gourlay.Colin@abc.net.au>"
+  ],
   "aunty": "react-app",
   "scripts": {
     "start": "aunty serve",
