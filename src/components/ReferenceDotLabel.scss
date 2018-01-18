@@ -1,0 +1,18 @@
+.label {
+  line {
+    stroke: #637679;
+    stroke-width: 1;
+  }
+
+  text {
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 3;
+    font-size: 11px;
+  }
+
+  text + text {
+    fill: #637679;
+    stroke: none;
+  }
+}

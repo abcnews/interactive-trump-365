@@ -1,0 +1,44 @@
+.root {
+  margin-bottom: 40px;
+  font-family: ABCSans, sans-serif;
+  font-size: 11px;
+
+  .layers {
+    position: relative;
+  }
+
+  :global(.recharts-responsive-container) + :global(.recharts-responsive-container) {
+    position: absolute;
+    top: 0;
+  }
+
+  :global(.recharts-cartesian-axis) text {
+    fill: #5c6c70;
+  }
+
+  :global(.recharts-reference-dot) :global(.recharts-label) {
+    font-size: 11px;
+    fill: #5c6c70;
+  }
+
+  :global(.recharts-label) {
+    font-size: 13px;
+  }
+
+  :global(.recharts-cartesian-axis) :global(.recharts-label) {
+    font-size: 14px;
+  }
+
+  :global(.recharts-cartesian-axis-tick-line) {
+    stroke: #c3c9c9;
+    stroke-width: 1;
+  }
+
+  label {
+    align-self: flex-start;
+    margin: 0 0 10px 10px;
+    max-width: 40%;
+    font-size: 14px;
+    color: #5c6c70;
+  }
+}
