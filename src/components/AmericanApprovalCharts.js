@@ -24,7 +24,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
     <Chart>
       <label>{`Approval rating (${name})`}</label>
       <ResponsiveContainer height={400}>
-        <LineChart data={data} margin={{ top: 10, right: 90, left: 0, bottom: 25 }}>
+        <LineChart data={data} margin={{ top: 10, right: 75, left: 0, bottom: 25 }}>
           {[
             <XAxis key="x" type="number" dataKey="dop" axisLine={false} ticks={[100, 200, 300, 365]} domain={[0, 365]}>
               <Label value="Number of days into presidency" offset={-15} position="insideBottom" />
@@ -51,7 +51,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
               dataKey="approve"
               name="Approve"
               unit="%"
-              stroke="#2E6FC9"
+              stroke="#008255"
               strokeWidth={2}
               dot={false}
               isAnimationActive={false}
@@ -59,7 +59,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
               <LabelList
                 dataKey="approve"
                 position="right"
-                fill="#2E6FC9"
+                fill="#008255"
                 formatter={() => {
                   ++llIndex === data.length && (llIndex = 0);
 
@@ -73,7 +73,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
               dataKey="dk"
               name="Unsure"
               unit="%"
-              stroke="#999"
+              stroke="#99B6BA"
               strokeWidth={2}
               dot={false}
               isAnimationActive={false}
@@ -81,7 +81,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
               <LabelList
                 dataKey="dk"
                 position="right"
-                fill="#999"
+                fill="#99B6BA"
                 formatter={() => {
                   ++llIndex === data.length && (llIndex = 0);
 
@@ -95,7 +95,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
               dataKey="disapprove"
               name="Disapprove"
               unit="%"
-              stroke="#E03434"
+              stroke="#FF6100"
               strokeWidth={2}
               dot={false}
               isAnimationActive={false}
@@ -103,7 +103,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
               <LabelList
                 dataKey="disapprove"
                 position="right"
-                fill="#E03434"
+                fill="#FF6100"
                 formatter={() => {
                   ++llIndex === data.length && (llIndex = 0);
 
@@ -140,8 +140,8 @@ class AmericanApprovalCharts extends React.Component {
       activeIndex: 0,
       presidents: [
         {
-          firstName: 'Donald',
-          surname: 'Trump',
+          shortName: 'Trump',
+          longName: 'Donald Trump',
           data: [],
           events: [
             { x: 45, y: 40, textLines: ['Revised travel', 'ban goes', 'into effect'] },
@@ -151,8 +151,8 @@ class AmericanApprovalCharts extends React.Component {
           ]
         },
         {
-          firstName: 'Barack',
-          surname: 'Obama',
+          shortName: 'Obama',
+          longName: 'Barack Obama',
           data: [],
           events: [
             {
@@ -164,8 +164,8 @@ class AmericanApprovalCharts extends React.Component {
           ]
         },
         {
-          firstName: 'George W.',
-          surname: 'Bush',
+          shortName: 'Bush Jr.',
+          longName: 'George W. Bush',
           data: [],
           events: [
             { x: 47, y: 56, textLines: ['House of Reps.', 'passed Republican', 'tax plan'] },
@@ -173,8 +173,8 @@ class AmericanApprovalCharts extends React.Component {
           ]
         },
         {
-          firstName: 'Bill',
-          surname: 'Clinton',
+          shortName: 'Clinton',
+          longName: 'Bill Clinton',
           data: [],
           events: [
             {
@@ -224,20 +224,20 @@ class AmericanApprovalCharts extends React.Component {
         <Tabs>
           {this.state.presidents.map((president, index) => (
             <button
-              key={president.surname}
+              key={president.longName}
               onClick={this.setPresident}
               data-index={index}
               disabled={this.state.activeIndex === index}
-              data-first-name={president.firstName}
+              data-long-name={president.longName}
             >
-              {president.surname}
+              <span>{president.shortName}</span>
             </button>
           ))}
         </Tabs>
         <AmericanApprovalChart
           data={this.state.presidents[this.state.activeIndex].data}
           events={this.state.presidents[this.state.activeIndex].events}
-          name={this.state.presidents[this.state.activeIndex].surname}
+          name={this.state.presidents[this.state.activeIndex].shortName}
         />
       </div>
     );

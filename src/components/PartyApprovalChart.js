@@ -89,7 +89,7 @@ class PartyApprovalChart extends React.Component {
               <Line
                 type="linear"
                 dataKey="inparty_app"
-                name="Bush"
+                name="Bush Jr."
                 unit="%"
                 stroke="#99B6BA"
                 strokeWidth={2}
@@ -103,7 +103,7 @@ class PartyApprovalChart extends React.Component {
                   formatter={() => {
                     ++llIndex === bush.length && (llIndex = 0);
 
-                    return llIndex === 0 ? 'Bush' : null;
+                    return llIndex === 0 ? 'Bush Jr.' : null;
                   }}
                 />
               </Line>
@@ -150,7 +150,7 @@ class PartyApprovalChart extends React.Component {
                 dataKey="inparty_app"
                 name="Trump"
                 unit="%"
-                stroke="#FF6100"
+                stroke="#E03434"
                 strokeWidth={2}
                 dot={false}
                 isAnimationActive={false}
@@ -158,7 +158,7 @@ class PartyApprovalChart extends React.Component {
                 <LabelList
                   dataKey="inparty_app"
                   position="right"
-                  fill="#FF6100"
+                  fill="#E03434"
                   formatter={() => {
                     ++llIndex === trump.length && (llIndex = 0);
 

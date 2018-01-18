@@ -140,8 +140,8 @@ class PartyIdentificationCharts extends React.Component {
       activeIndex: 0,
       presidents: [
         {
-          firstName: 'Donald',
-          surname: 'Trump',
+          shortName: 'Trump',
+          longName: 'Donald Trump',
           data: [],
           events: [
             { x: 45, y: 88, textLines: ['Revised travel', 'ban goes', 'into effect'] },
@@ -151,8 +151,8 @@ class PartyIdentificationCharts extends React.Component {
           ]
         },
         {
-          firstName: 'Barack',
-          surname: 'Obama',
+          shortName: 'Obama',
+          longName: 'Barack Obama',
           data: [],
           events: [
             {
@@ -164,8 +164,8 @@ class PartyIdentificationCharts extends React.Component {
           ]
         },
         {
-          firstName: 'George W.',
-          surname: 'Bush',
+          shortName: 'Bush Jr.',
+          longName: 'George W. Bush',
           data: [],
           events: [
             { x: 47, y: 89, textLines: ['House of Reps.', 'passed Republican', 'tax plan'] },
@@ -173,8 +173,8 @@ class PartyIdentificationCharts extends React.Component {
           ]
         },
         {
-          firstName: 'Bill',
-          surname: 'Clinton',
+          shortName: 'Clinton',
+          longName: 'Bill Clinton',
           data: [],
           events: [
             {
@@ -228,20 +228,20 @@ class PartyIdentificationCharts extends React.Component {
         <Tabs>
           {this.state.presidents.map((president, index) => (
             <button
-              key={president.surname}
+              key={president.longName}
               onClick={this.setPresident}
               data-index={index}
               disabled={this.state.activeIndex === index}
-              data-first-name={president.firstName}
+              data-long-name={president.longName}
             >
-              {president.surname}
+              <span>{president.shortName}</span>
             </button>
           ))}
         </Tabs>
         <PartyIdentificationChart
           data={this.state.presidents[this.state.activeIndex].data}
           events={this.state.presidents[this.state.activeIndex].events}
-          name={this.state.presidents[this.state.activeIndex].surname}
+          name={this.state.presidents[this.state.activeIndex].shortName}
         />
       </div>
     );

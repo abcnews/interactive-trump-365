@@ -41,7 +41,7 @@ class PollAggregationChart extends React.Component {
       <Chart>
         <label>Approval rating (aggregated)</label>
         <ResponsiveContainer height={400}>
-          <LineChart data={this.state.data} margin={{ top: 10, right: 85, left: 0, bottom: 25 }}>
+          <LineChart data={this.state.data} margin={{ top: 10, right: 80, left: 0, bottom: 25 }}>
             <XAxis type="number" dataKey="dop" axisLine={false} ticks={[100, 200, 300, 365]} domain={[0, 365]}>
               <Label value="Number of days into presidency" offset={-15} position="insideBottom" />
             </XAxis>
@@ -62,9 +62,9 @@ class PollAggregationChart extends React.Component {
             <Line
               type="linear"
               dataKey="disapprove_estimate"
-              name="Disapproval rating"
+              name="Disapprove"
               unit="%"
-              stroke="#E03434"
+              stroke="#FF6100"
               strokeWidth={2}
               dot={false}
               isAnimationActive={false}
@@ -72,20 +72,20 @@ class PollAggregationChart extends React.Component {
               <LabelList
                 dataKey="disapprove_estimate"
                 position="right"
-                fill="#E03434"
+                fill="#FF6100"
                 formatter={() => {
                   ++llIndex === this.state.data.length && (llIndex = 0);
 
-                  return llIndex === 0 ? 'Disapproval' : null;
+                  return llIndex === 0 ? 'Disapprove' : null;
                 }}
               />
             </Line>
             <Line
               type="linear"
               dataKey="approve_estimate"
-              name="Approval rating"
+              name="Approve"
               unit="%"
-              stroke="#2E6FC9"
+              stroke="#008255"
               strokeWidth={2}
               dot={false}
               isAnimationActive={false}
@@ -93,11 +93,11 @@ class PollAggregationChart extends React.Component {
               <LabelList
                 dataKey="approve_estimate"
                 position="right"
-                fill="#2E6FC9"
+                fill="#008255"
                 formatter={() => {
                   ++llIndex === this.state.data.length && (llIndex = 0);
 
-                  return llIndex === 0 ? 'Approval' : null;
+                  return llIndex === 0 ? 'Approve' : null;
                 }}
               />
             </Line>

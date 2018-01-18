@@ -5,8 +5,8 @@
   button {
     display: inline-block;
     margin: 0;
-    border: 0;
-    padding: 4px 16px 5px;
+    border: 1px solid #666;
+    padding: 4px 12px 5px;
     background-color: transparent;
     color: #666;
     font-size: 13px;
@@ -14,7 +14,11 @@
 
     @media (min-width: 700px) {
       &::before {
-        content: attr(data-first-name) ' ';
+        content: attr(data-long-name) ' ';
+      }
+
+      span {
+        display: none;
       }
     }
   }
@@ -23,5 +27,9 @@
     background-color: #666;
     color: #fff;
     cursor: default;
+  }
+
+  button + button {
+    margin-left: 5px;
   }
 }
