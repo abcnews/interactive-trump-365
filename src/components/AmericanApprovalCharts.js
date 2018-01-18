@@ -21,7 +21,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
   let llIndex = 0;
 
   return data.length ? (
-    <Chart>
+    <Chart source="Gallup">
       <label>{`Approval rating (${name})`}</label>
       <ResponsiveContainer height={400}>
         <LineChart data={data} margin={{ top: 10, right: 75, left: 0, bottom: 25 }}>
@@ -81,7 +81,7 @@ function AmericanApprovalChart({ data = [], events = [], name = '' }) {
               <LabelList
                 dataKey="dk"
                 position="right"
-                fill="#99B6BA"
+                fill="#637679"
                 formatter={() => {
                   ++llIndex === data.length && (llIndex = 0);
 

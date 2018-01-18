@@ -42,8 +42,8 @@ class PartyApprovalChart extends React.Component {
     let llIndex = 0;
 
     return this.state.data.length ? (
-      <Chart>
-        <label>Approval rating within party</label>
+      <Chart source="Gallup">
+        <label>Approval rating within own party</label>
         <div className={chartStyles.layers}>
           <ResponsiveContainer height={400}>
             <LineChart data={clinton} margin={{ top: 10, right: 55, left: 0, bottom: 25 }}>
@@ -72,7 +72,7 @@ class PartyApprovalChart extends React.Component {
                 <LabelList
                   dataKey="inparty_app"
                   position="right"
-                  fill="#99B6BA"
+                  fill="#637679"
                   formatter={() => {
                     ++llIndex === clinton.length && (llIndex = 0);
 
@@ -99,7 +99,7 @@ class PartyApprovalChart extends React.Component {
                 <LabelList
                   dataKey="inparty_app"
                   position="right"
-                  fill="#99B6BA"
+                  fill="#637679"
                   formatter={() => {
                     ++llIndex === bush.length && (llIndex = 0);
 
@@ -126,7 +126,7 @@ class PartyApprovalChart extends React.Component {
                 <LabelList
                   dataKey="inparty_app"
                   position="right"
-                  fill="#99B6BA"
+                  fill="#637679"
                   formatter={() => {
                     ++llIndex === obama.length && (llIndex = 0);
 
