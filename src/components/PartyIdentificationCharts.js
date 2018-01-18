@@ -81,7 +81,7 @@ function PartyIdentificationChart({ data = [], events = [], name = '' }) {
               <LabelList
                 dataKey="ind_app"
                 position="right"
-                fill="#999"
+                fill="#666"
                 formatter={() => {
                   ++llIndex === data.length && (llIndex = 0);
 
@@ -146,7 +146,7 @@ class PartyIdentificationCharts extends React.Component {
           events: [
             { x: 45, y: 88, textLines: ['Revised travel', 'ban goes', 'into effect'] },
             { x: 97, y: 36, textLines: ['New tax plan', 'proposed'] },
-            { x: 189, y: 82, textLines: ['Health care bill', 'defeated by', 'Sen. McCain'] },
+            { x: 189, y: 82, textLines: ['Health care', 'bill defeated'] },
             { x: 333, y: 77, textLines: ['Sweeping tax', 'bill passed'] }
           ]
         },
@@ -158,7 +158,7 @@ class PartyIdentificationCharts extends React.Component {
             {
               x: 29,
               y: 60,
-              textLines: ['Economic stimulus', 'bill passed;', 'military presence in', 'Afghanistan doubled']
+              textLines: ['Economic stimulus', 'bill passed']
             },
             { x: 262, y: 83, textLines: ['Wins Nobel', 'peace prize'] }
           ]
@@ -167,10 +167,7 @@ class PartyIdentificationCharts extends React.Component {
           shortName: 'Bush Jr.',
           longName: 'George W. Bush',
           data: [],
-          events: [
-            { x: 47, y: 89, textLines: ['House of Reps.', 'passed Republican', 'tax plan'] },
-            { x: 225, y: 27, textLines: ['9/11'] }
-          ]
+          events: [{ x: 225, y: 27, textLines: ['9/11'] }]
         },
         {
           shortName: 'Clinton',
@@ -178,19 +175,9 @@ class PartyIdentificationCharts extends React.Component {
           data: [],
           events: [
             {
-              x: 89,
-              y: 81,
-              textLines: [
-                '75 people die in',
-                'hostage stand-off ordered',
-                'by US Attorney General',
-                '(appointed by Clinton)'
-              ]
-            },
-            {
               x: 180,
               y: 35,
-              textLines: ['Gay soldiers allowed', 'to join US military', 'but prohibited from', 'serving openly']
+              textLines: ['‘Donʼt ask, donʼt tellʼ policy']
             }
           ]
         }
@@ -234,7 +221,7 @@ class PartyIdentificationCharts extends React.Component {
               disabled={this.state.activeIndex === index}
               data-long-name={president.longName}
             >
-              <span>{president.shortName}</span>
+              <span data-index={index}>{president.shortName}</span>
             </button>
           ))}
         </Tabs>

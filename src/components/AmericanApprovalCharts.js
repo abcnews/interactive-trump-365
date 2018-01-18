@@ -145,8 +145,7 @@ class AmericanApprovalCharts extends React.Component {
           data: [],
           events: [
             { x: 45, y: 40, textLines: ['Revised travel', 'ban goes', 'into effect'] },
-            { x: 97, y: 53, textLines: ['New tax plan', 'proposed'] },
-            { x: 189, y: 37, textLines: ['Health care bill', 'defeated by', 'Sen. McCain'] },
+            { x: 189, y: 37, textLines: ['Health care', 'bill defeated'] },
             { x: 333, y: 55, textLines: ['Sweeping tax', 'bill passed'] }
           ]
         },
@@ -154,34 +153,19 @@ class AmericanApprovalCharts extends React.Component {
           shortName: 'Obama',
           longName: 'Barack Obama',
           data: [],
-          events: [
-            {
-              x: 29,
-              y: 62,
-              textLines: ['Economic stimulus', 'bill passed;', 'military presence in', 'Afghanistan doubled']
-            },
-            { x: 262, y: 38, textLines: ['Wins Nobel', 'peace prize'] }
-          ]
+          events: [{ x: 262, y: 38, textLines: ['Wins Nobel', 'peace prize'] }]
         },
         {
           shortName: 'Bush Jr.',
           longName: 'George W. Bush',
           data: [],
-          events: [
-            { x: 47, y: 56, textLines: ['House of Reps.', 'passed Republican', 'tax plan'] },
-            { x: 225, y: 51, textLines: ['9/11'] }
-          ]
+          events: [{ x: 225, y: 51, textLines: ['9/11'] }]
         },
         {
           shortName: 'Clinton',
           longName: 'Bill Clinton',
           data: [],
           events: [
-            {
-              x: 89,
-              y: 54,
-              textLines: ['75 people die in', 'hostage stand-off']
-            },
             {
               x: 180,
               y: 41,
@@ -230,7 +214,7 @@ class AmericanApprovalCharts extends React.Component {
               disabled={this.state.activeIndex === index}
               data-long-name={president.longName}
             >
-              <span>{president.shortName}</span>
+              <span data-index={index}>{president.shortName}</span>
             </button>
           ))}
         </Tabs>
