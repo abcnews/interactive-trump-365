@@ -4,12 +4,16 @@ const { render } = require('react-dom');
 const roots = [...document.querySelectorAll(`[data-interactive-trump-365-root]`)];
 
 function init() {
+  const AmericanApprovalCharts = require('./components/AmericanApprovalCharts');
   const PartyApprovalChart = require('./components/PartyApprovalChart');
   const PartyIdentificationCharts = require('./components/PartyIdentificationCharts');
   const PollAggregationChart = require('./components/PollAggregationChart');
 
   roots.forEach(root => {
     switch (root.getAttribute('data-interactive-trump-365-root')) {
+      case 'AmericanApprovalCharts':
+        render(<AmericanApprovalCharts />, root);
+        break;
       case 'PollAggregationChart':
         render(<PollAggregationChart />, root);
         break;
@@ -40,6 +44,7 @@ if (module.hot) {
     }
   };
 
+  module.hot.accept('./components/AmericanApprovalCharts', reInit);
   module.hot.accept('./components/PartyApprovalChart', reInit);
   module.hot.accept('./components/PartyIdentificationCharts', reInit);
   module.hot.accept('./components/PollAggregationChart', reInit);
