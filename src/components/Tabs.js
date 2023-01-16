@@ -1,8 +1,6 @@
-const React = require('react');
-const styles = require('./Tabs.scss');
+import React from 'react';
+import styles from './Tabs.scss';
 
-function Tabs(props) {
+export default function Tabs(props) {
   return <div className={styles.root}>{props.children}</div>;
 }
-
-module.exports = Tabs;

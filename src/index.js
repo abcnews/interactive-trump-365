@@ -1,51 +1,27 @@
-const React = require('react');
-const { render } = require('react-dom');
+import { whenOdysseyLoaded } from '@abcnews/env-utils';
+import { getMountValue, selectMounts } from '@abcnews/mount-utils';
+import React from 'react';
+import { render } from 'react-dom';
+import AmericanApprovalCharts from './components/AmericanApprovalCharts';
+import PartyApprovalChart from './components/PartyApprovalChart';
+import PartyIdentificationCharts from './components/PartyIdentificationCharts';
+import PollAggregationChart from './components/PollAggregationChart';
 
-const roots = [...document.querySelectorAll(`[data-interactive-trump-365-root]`)];
+const components = {
+  AmericanApprovalCharts,
+  PartyApprovalChart,
+  PartyIdentificationCharts,
+  PollAggregationChart
+};
 
-function init() {
-  const AmericanApprovalCharts = require('./components/AmericanApprovalCharts');
-  const PartyApprovalChart = require('./components/PartyApprovalChart');
-  const PartyIdentificationCharts = require('./components/PartyIdentificationCharts');
-  const PollAggregationChart = require('./components/PollAggregationChart');
+whenOdysseyLoaded.then(() => {
+  selectMounts('trump365').forEach(el => {
+    const [, componentName] = getMountValue(el).split(':');
+    const Component = components[componentName];
+    console.debug({ componentName, Component });
 
-  roots.forEach(root => {
-    switch (root.getAttribute('data-interactive-trump-365-root')) {
-      case 'AmericanApprovalCharts':
-        render(<AmericanApprovalCharts />, root);
-        break;
-      case 'PollAggregationChart':
-        render(<PollAggregationChart />, root);
-        break;
-      case 'PartyIdentificationCharts':
-        render(<PartyIdentificationCharts />, root);
-        break;
-      case 'PartyApprovalChart':
-        render(<PartyApprovalChart />, root);
-        break;
-      default:
-        break;
+    if (Component) {
+      render(<Component />, el);
     }
   });
-}
-
-init();
-
-if (module.hot) {
-  const reInit = () => {
-    try {
-      init();
-    } catch (err) {
-      const ErrorBox = require('./components/ErrorBox');
-
-      roots.forEach((root, index) => {
-        render(index === 0 ? <ErrorBox error={err} /> : <div />, root);
-      });
-    }
-  };
-
-  module.hot.accept('./components/AmericanApprovalCharts', reInit);
-  module.hot.accept('./components/PartyApprovalChart', reInit);
-  module.hot.accept('./components/PartyIdentificationCharts', reInit);
-  module.hot.accept('./components/PollAggregationChart', reInit);
-}
+});

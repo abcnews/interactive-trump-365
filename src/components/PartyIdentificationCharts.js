@@ -1,6 +1,7 @@
-const { csv } = require('d3-request');
-const React = require('react');
-const {
+import { csv } from 'd3-request';
+import React from 'react';
+
+import {
   Label,
   LabelList,
   LineChart,
@@ -9,13 +10,12 @@ const {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
   ReferenceDot
-} = require('recharts');
-const Chart = require('./Chart');
-const ReferenceDotLabel = require('./ReferenceDotLabel');
-const Tabs = require('./Tabs');
+} from 'recharts';
+import Chart from './Chart';
+import ReferenceDotLabel from './ReferenceDotLabel';
+import Tabs from './Tabs';
 
 function PartyIdentificationChart({ data = [], events = [], name = '' }) {
   let llIndex = 0;
@@ -26,7 +26,14 @@ function PartyIdentificationChart({ data = [], events = [], name = '' }) {
       <ResponsiveContainer height={400}>
         <LineChart data={data} margin={{ top: 10, right: 90, left: 0, bottom: 25 }}>
           {[
-            <XAxis key="x" type="number" dataKey="dop" axisLine={false} ticks={[100, 200, 300, 365]} domain={[0, 365]}>
+            <XAxis
+              key="x"
+              type="number"
+              dataKey="dop"
+              axisLine={false}
+              ticks={[100, 200, 300, 365]}
+              domain={[0, 365]}
+            >
               <Label value="Number of days into presidency" offset={-15} position="insideBottom" />
             </XAxis>,
             <YAxis
@@ -120,7 +127,9 @@ function PartyIdentificationChart({ data = [], events = [], name = '' }) {
                 r={0}
                 fill="#000"
                 stroke="none"
-                label={({ viewBox }) => <ReferenceDotLabel x={viewBox.x} y={viewBox.y} textLines={event.textLines} />}
+                label={({ viewBox }) => (
+                  <ReferenceDotLabel x={viewBox.x} y={viewBox.y} textLines={event.textLines} />
+                )}
               />
             ))
           )}
@@ -130,7 +139,7 @@ function PartyIdentificationChart({ data = [], events = [], name = '' }) {
   ) : null;
 }
 
-class PartyIdentificationCharts extends React.Component {
+export default class PartyIdentificationCharts extends React.Component {
   constructor(props) {
     super(props);
 
@@ -185,9 +194,18 @@ class PartyIdentificationCharts extends React.Component {
     };
 
     csv(`${__webpack_public_path__}charts/trump_ratings.csv`, this.setPresidentData.bind(this, 0));
-    csv(`${__webpack_public_path__}charts/approval_pid_obama.csv`, this.setPresidentData.bind(this, 1));
-    csv(`${__webpack_public_path__}charts/approval_pid_bush.csv`, this.setPresidentData.bind(this, 2));
-    csv(`${__webpack_public_path__}charts/approval_pid_clinton.csv`, this.setPresidentData.bind(this, 3));
+    csv(
+      `${__webpack_public_path__}charts/approval_pid_obama.csv`,
+      this.setPresidentData.bind(this, 1)
+    );
+    csv(
+      `${__webpack_public_path__}charts/approval_pid_bush.csv`,
+      this.setPresidentData.bind(this, 2)
+    );
+    csv(
+      `${__webpack_public_path__}charts/approval_pid_clinton.csv`,
+      this.setPresidentData.bind(this, 3)
+    );
   }
 
   setPresidentData(index, data) {
@@ -234,5 +252,3 @@ class PartyIdentificationCharts extends React.Component {
     );
   }
 }
-
-module.exports = PartyIdentificationCharts;

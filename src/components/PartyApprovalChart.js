@@ -1,6 +1,7 @@
-const { csv } = require('d3-request');
-const React = require('react');
-const {
+import { csv } from 'd3-request';
+import React from 'react';
+
+import {
   Label,
   LabelList,
   LineChart,
@@ -9,13 +10,12 @@ const {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer
-} = require('recharts');
-const Chart = require('./Chart');
-const chartStyles = require('./Chart.scss');
+} from 'recharts';
+import Chart from './Chart';
+import styles from './Chart.scss';
 
-class PartyApprovalChart extends React.Component {
+export default class PartyApprovalChart extends React.Component {
   constructor(props) {
     super(props);
 
@@ -44,11 +44,21 @@ class PartyApprovalChart extends React.Component {
     return this.state.data.length ? (
       <Chart source="Gallup">
         <label>Approval rating within own party</label>
-        <div className={chartStyles.layers}>
+        <div className={styles.layers}>
           <ResponsiveContainer height={400}>
             <LineChart data={clinton} margin={{ top: 10, right: 55, left: 0, bottom: 25 }}>
-              <XAxis type="number" dataKey="dop" axisLine={false} ticks={[100, 200, 300, 365]} domain={[0, 365]}>
-                <Label value="Number of days into presidency" offset={-15} position="insideBottom" />
+              <XAxis
+                type="number"
+                dataKey="dop"
+                axisLine={false}
+                ticks={[100, 200, 300, 365]}
+                domain={[0, 365]}
+              >
+                <Label
+                  value="Number of days into presidency"
+                  offset={-15}
+                  position="insideBottom"
+                />
               </XAxis>
               <YAxis
                 width={40}
@@ -84,7 +94,14 @@ class PartyApprovalChart extends React.Component {
           </ResponsiveContainer>
           <ResponsiveContainer height={400}>
             <LineChart data={bush} margin={{ top: 10, right: 55, left: 0, bottom: 25 }}>
-              <XAxis type="number" dataKey="dop" axisLine={false} tick={false} ticks={[]} domain={[0, 365]} />
+              <XAxis
+                type="number"
+                dataKey="dop"
+                axisLine={false}
+                tick={false}
+                ticks={[]}
+                domain={[0, 365]}
+              />
               <YAxis width={40} axisLine={false} tick={false} ticks={[]} domain={[60, 100]} />
               <Line
                 type="linear"
@@ -111,7 +128,14 @@ class PartyApprovalChart extends React.Component {
           </ResponsiveContainer>
           <ResponsiveContainer height={400}>
             <LineChart data={obama} margin={{ top: 10, right: 55, left: 0, bottom: 25 }}>
-              <XAxis type="number" dataKey="dop" axisLine={false} tick={false} ticks={[]} domain={[0, 365]} />
+              <XAxis
+                type="number"
+                dataKey="dop"
+                axisLine={false}
+                tick={false}
+                ticks={[]}
+                domain={[0, 365]}
+              />
               <YAxis width={40} axisLine={false} tick={false} ticks={[]} domain={[60, 100]} />
               <Line
                 type="linear"
@@ -138,7 +162,14 @@ class PartyApprovalChart extends React.Component {
           </ResponsiveContainer>
           <ResponsiveContainer height={400}>
             <LineChart data={trump} margin={{ top: 10, right: 55, left: 0, bottom: 25 }}>
-              <XAxis type="number" dataKey="dop" axisLine={false} tick={false} ticks={[]} domain={[0, 365]} />
+              <XAxis
+                type="number"
+                dataKey="dop"
+                axisLine={false}
+                tick={false}
+                ticks={[]}
+                domain={[0, 365]}
+              />
               <YAxis width={40} axisLine={false} tick={false} ticks={[]} domain={[60, 100]} />
               <Tooltip
                 cursor={{ strokeDasharray: '3 3' }}
@@ -173,5 +204,3 @@ class PartyApprovalChart extends React.Component {
     ) : null;
   }
 }
-
-module.exports = PartyApprovalChart;

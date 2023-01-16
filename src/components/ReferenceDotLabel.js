@@ -1,7 +1,7 @@
-const React = require('react');
-const styles = require('./ReferenceDotLabel.scss');
+import React from 'react';
+import styles from './ReferenceDotLabel.scss';
 
-function ReferenceDotLabel({ textLines, x, y }) {
+export default function ReferenceDotLabel({ textLines, x, y }) {
   return (
     <g className={styles.label} transform={`translate(${x} ${y})`}>
       <line x1={1} y1={4} x2={6} y2={18} />
@@ -22,5 +22,3 @@ function ReferenceDotLabel({ textLines, x, y }) {
     </g>
   );
 }
-
-module.exports = ReferenceDotLabel;

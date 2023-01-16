@@ -1,11 +1,23 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<h2>Presidential job approval rating according to American adults</h2>
-<div data-interactive-trump-365-root="AmericanApprovalCharts"></div>
-<h2>Approval rating within own party</h2>
-<div data-interactive-trump-365-root="PartyApprovalChart"></div>
-<h2>Job approval rating by party identification</h2>
-<div data-interactive-trump-365-root="PartyIdentificationCharts"></div>
-<h2>Poll aggregation of presidential approval ratings</h2>
-<div data-interactive-trump-365-root="PollAggregationChart"></div>
-<script src="index.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>[interactive-trump-365]</title>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h2>Presidential job approval rating according to American adults</h2>
+    <div data-mount id="trump365:AmericanApprovalCharts"></div>
+    <h2>Approval rating within own party</h2>
+    <div data-mount id="trump365:PartyApprovalChart"></div>
+    <h2>Job approval rating by party identification</h2>
+    <div data-mount id="trump365:PartyIdentificationCharts"></div>
+    <h2>Poll aggregation of presidential approval ratings</h2>
+    <div data-mount id="trump365:PollAggregationChart"></div>
+    <!-- Mock Odyssey's loaded event so the `whenOdysseyLoaded` promise resolves -->
+    <script>
+      window.dispatchEvent(new CustomEvent('odyssey:api'));
+    </script>
+  </body>
+</html>

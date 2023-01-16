@@ -1,6 +1,7 @@
-const { csv } = require('d3-request');
-const React = require('react');
-const {
+import { csv } from 'd3-request';
+import React from 'react';
+
+import {
   Label,
   LabelList,
   LineChart,
@@ -9,13 +10,11 @@ const {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
-  ResponsiveContainer,
-  ReferenceDot
-} = require('recharts');
-const Chart = require('./Chart');
+  ResponsiveContainer
+} from 'recharts';
+import Chart from './Chart';
 
-class PollAggregationChart extends React.Component {
+export default class PollAggregationChart extends React.Component {
   constructor(props) {
     super(props);
 
@@ -42,7 +41,13 @@ class PollAggregationChart extends React.Component {
         <label>Approval rating (aggregated)</label>
         <ResponsiveContainer height={400}>
           <LineChart data={this.state.data} margin={{ top: 10, right: 80, left: 0, bottom: 25 }}>
-            <XAxis type="number" dataKey="dop" axisLine={false} ticks={[100, 200, 300, 365]} domain={[0, 365]}>
+            <XAxis
+              type="number"
+              dataKey="dop"
+              axisLine={false}
+              ticks={[100, 200, 300, 365]}
+              domain={[0, 365]}
+            >
               <Label value="Number of days into presidency" offset={-15} position="insideBottom" />
             </XAxis>
             <YAxis
@@ -107,5 +112,3 @@ class PollAggregationChart extends React.Component {
     ) : null;
   }
 }
-
-module.exports = PollAggregationChart;

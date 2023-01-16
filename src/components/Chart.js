@@ -1,7 +1,7 @@
-const React = require('react');
-const styles = require('./Chart.scss');
+import React from 'react';
+import styles from './Chart.scss';
 
-function Chart(props) {
+export default function Chart(props) {
   return (
     <div className={styles.root}>
       {props.children}
@@ -9,5 +9,3 @@ function Chart(props) {
     </div>
   );
 }
-
-module.exports = Chart;

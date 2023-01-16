@@ -5,7 +5,7 @@
 /public/charts
 
 # builds
-/build
+/.aunty
 
 # misc
 .DS_Store
