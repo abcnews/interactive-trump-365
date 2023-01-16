@@ -18,7 +18,6 @@ whenOdysseyLoaded.then(() => {
   selectMounts('trump365').forEach(el => {
     const [, componentName] = getMountValue(el).split(':');
     const Component = components[componentName];
-    console.debug({ componentName, Component });
 
     if (Component) {
       render(<Component />, el);
