@@ -1,6 +1,6 @@
 {
 	"name": "interactive-trump-365",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Charting approval rating data with Recharts.",
 	"license": "MIT",
 	"private": true,
