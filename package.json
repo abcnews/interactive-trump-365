@@ -1,28 +1,28 @@
 {
-  "name": "interactive-trump-365",
-  "version": "1.4.1",
-  "description": "Charting approval rating data with Recharts.",
-  "license": "MIT",
-  "private": true,
-  "contributors": [
-    "Zoe Meers <zoe.meers@gmail.com>",
-    "Colin Gourlay <Gourlay.Colin@abc.net.au>"
-  ],
-  "aunty": "react",
-  "scripts": {
-    "start": "aunty serve",
-    "data": "cd public && rm -rf charts && git clone https://github.com/zmeers/trump-365.git charts && rm -rf charts/.git"
-  },
-  "devDependencies": {
-    "@abcnews/aunty": "^13.2.2"
-  },
-  "dependencies": {
-    "@abcnews/env-utils": "^3.1.0",
-    "@abcnews/mount-utils": "^2.0.0",
-    "d3": "^4.12.2",
-    "d3-request": "^1.0.6",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "recharts": "^2.3.2"
-  }
+	"name": "interactive-trump-365",
+	"version": "2.0.0",
+	"description": "Charting approval rating data with Recharts.",
+	"license": "MIT",
+	"private": true,
+	"contributors": [
+		"Zoe Meers <zoe.meers@gmail.com>",
+		"Colin Gourlay <Gourlay.Colin@abc.net.au>"
+	],
+	"aunty": "react",
+	"scripts": {
+		"start": "aunty serve",
+		"data": "cd public && rm -rf charts && git clone https://github.com/zmeers/trump-365.git charts && rm -rf charts/.git"
+	},
+	"devDependencies": {
+		"@abcnews/aunty": "^13.2.2"
+	},
+	"dependencies": {
+		"@abcnews/env-utils": "^3.1.0",
+		"@abcnews/mount-utils": "^2.0.0",
+		"d3": "^4.12.2",
+		"d3-request": "^1.0.6",
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0",
+		"recharts": "^2.3.2"
+	}
 }
